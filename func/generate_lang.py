@@ -72,6 +72,7 @@ def trans2lang():
     get_config()
     QUESTS_PATH = global_var.get_value('QUESTS_PATH')
     quest_path = Path(QUESTS_PATH)  # 要翻译的目录
+    quest_path.mkdir(parents=True, exist_ok=True)  # 创建目录（如果不存在）
     key_value = {}  # 用于存放新生成的键值及其对应的文本
     t = list(quest_path.rglob("*.snbt"))
     for i in tqdm(range(0, len(t)), colour='#0396FF'):

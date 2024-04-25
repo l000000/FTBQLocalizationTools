@@ -11,7 +11,7 @@ import snbtlib
 
 MAGIC_WORD = r'{xdawned}'
 
-pipe = pipeline("translation", model="./models/minecraft-en-zh")
+# pipe = pipeline("translation", model="./models/minecraft-en-zh")
 
 
 class TextStyle:
@@ -153,13 +153,13 @@ def translate_line(line: str) -> str:
             '''
             print(TextStyle.RED, "api调用出错", TextStyle.RESET)
             return line
-    else:
-        try:
-            output = pipe(line)[0]['translation_text']
-            return output
-        except:
-            print(TextStyle.RED, "翻译模型调用出错！", TextStyle.RESET)
-            return line
+    # else:
+    #     try:
+    #         output = pipe(line)[0]['translation_text']
+    #         return output
+    #     except:
+    #         print(TextStyle.RED, "翻译模型调用出错！", TextStyle.RESET)
+    #         return line
 
 
 # magic方法，这样似乎就可以让baidu不翻译颜色代码
